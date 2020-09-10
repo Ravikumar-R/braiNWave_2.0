@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'src/theme.scss';
+
+.container_panel {
+    position: fixed;
+    left: 15%;
+    top: 6%;
+    width: 85%;
+    height: 100%;
+    background-color: $panelColor;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+body {
+    font-size: 14px;
+}
+
+.sidebar {
+    position: fixed;
+    width: 15%;
+    top: 6%;
+    height: 100%;
+    background-color: $sideBarColor;
+}
+.topnav {
+    position: fixed;
+    width: 100%;
+    height: 6%;
+    background-color: $topnavColor;
+}
+.field {
+    width: 20em;
+    height: 100%;
+    .ui-dropdown-label-container {
+        width: 20em;
+    }
+    .ui-calendar{
+        min-width: 20em; 
+        .ui-inputtext {
+            width: 85%;
+        }
+        .ui-calendar-button {
+            width: 15% !important;
+            height: 100%;
+        }
+    }
+}
+body .ui-button.ui-button-icon-only .ui-button-text {
+    padding:  0.5em;
+}

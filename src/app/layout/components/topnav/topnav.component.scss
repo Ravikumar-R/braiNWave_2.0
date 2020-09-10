@@ -1,0 +1,18 @@
+.topnav {
+  display: flex;
+  .header {
+    position: absolute;
+    left: 15%;
+    display: flex;
+    justify-content: center;
+    width: 85%;
+    height: 100%;
+    h3 {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+  }
+}

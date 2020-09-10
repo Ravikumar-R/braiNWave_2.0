@@ -1,0 +1,11 @@
+
+@import 'src/theme.scss';
+
+a {
+    padding: 0.5em;
+    font-size: 1.3em;
+    color: #000;
+    &:hover {
+        color: #000;
+    }
+}

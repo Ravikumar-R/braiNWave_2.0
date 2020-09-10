@@ -1,0 +1,85 @@
+<div class="manageCoupon">
+  <h4 class="my-3">Coupon Generation</h4>
+  <h6 class="my-3">Coupon Details:</h6>
+  <form [formGroup]="couponForm">
+    <div class="row no-gutters mb-3">
+      <div class="col-lg-4 field_block">
+        <label>Coupon Type:</label>
+        <p-dropdown
+          class="field"
+          [options]="couponTypes"
+          optionLabel="name"
+          placeholder="Coupon Type"
+          formControlName="type"
+        ></p-dropdown>
+      </div>
+      <div class="col-lg-4 field_block ml-5">
+        <label>Coupon Amount:</label>
+        <input
+          class="field"
+          type="number"
+          placeholder="Coupon Amount"
+          formControlName="amount"
+        />
+      </div>
+    </div>
+    <div class="row no-gutters mb-3">
+      <div class="col-lg-4 field_block">
+        <label>Valid From:</label>
+        <p-calendar
+          class="field"
+          formControlName="validFrom"
+          [showIcon]="true"
+          placeholder="DD/MM/YYYY"
+        ></p-calendar>
+      </div>
+      <div class="col-lg-4 field_block ml-5">
+        <label>Valid To:</label>
+        <p-calendar
+          class="field"
+          formControlName="validTo"
+          [showIcon]="true"
+          placeholder="DD/MM/YYYY"
+        ></p-calendar>
+      </div>
+    </div>
+    <h6 class="my-3">Recipient Details:</h6>
+    <div formGroupName='recipientForm'>
+      <div class="row no-gutters mb-3">
+        <div class="col-lg-4 field_block">
+          <label>Recipient Name:</label>
+          <input
+            class="field"
+            type="text"
+            placeholder="Recipient Name"
+            formControlName="name"
+          />
+        </div>
+        <div class="col-lg-4 field_block ml-5">
+          <label>Phone Number:</label>
+          <input
+            class="field"
+            type="number"
+            placeholder="Phone Number"
+            formControlName="phone"
+          />
+        </div>
+      </div>
+      <div class="row no-gutters mb-3">
+        <div class="col-lg-4 field_block">
+          <label>Email:</label>
+          <input
+            class="field"
+            type="text"
+            placeholder="Email"
+            formControlName="email"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="button_group">
+      <button type="button" (click)='clear()' class="btn btn-default">Clear</button>
+      <button type="button" (click)='save()' class="btn btn-default ml-3">Generate</button> 
+    </div>
+  </form>
+</div>
