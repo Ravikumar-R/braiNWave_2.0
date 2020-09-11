@@ -4,7 +4,7 @@
   <form [formGroup]="couponForm">
     <div class="row no-gutters mb-3">
       <div class="col-lg-4 field_block">
-        <label>Coupon Type:</label>
+        <label class="mandatory">Coupon Type:</label>
         <p-dropdown
           class="field"
           [options]="couponTypes"
@@ -14,7 +14,7 @@
         ></p-dropdown>
       </div>
       <div class="col-lg-4 field_block ml-5">
-        <label>Coupon Amount:</label>
+        <label class="mandatory">Coupon Amount:</label>
         <input
           class="field"
           type="number"
@@ -25,19 +25,22 @@
     </div>
     <div class="row no-gutters mb-3">
       <div class="col-lg-4 field_block">
-        <label>Valid From:</label>
+        <label class="mandatory">Valid From:</label>
         <p-calendar
           class="field"
           formControlName="validFrom"
+          [minDate]='minValidDate'
+          [maxDate]="couponForm.get('validTo').value"
           [showIcon]="true"
           placeholder="DD/MM/YYYY"
         ></p-calendar>
       </div>
       <div class="col-lg-4 field_block ml-5">
-        <label>Valid To:</label>
+        <label class="mandatory">Valid To:</label>
         <p-calendar
           class="field"
           formControlName="validTo"
+          [minDate]="couponForm.get('validFrom').value"
           [showIcon]="true"
           placeholder="DD/MM/YYYY"
         ></p-calendar>
@@ -47,7 +50,7 @@
     <div formGroupName='recipientForm'>
       <div class="row no-gutters mb-3">
         <div class="col-lg-4 field_block">
-          <label>Recipient Name:</label>
+          <label class="mandatory">Recipient Name:</label>
           <input
             class="field"
             type="text"
@@ -56,7 +59,7 @@
           />
         </div>
         <div class="col-lg-4 field_block ml-5">
-          <label>Phone Number:</label>
+          <label class="mandatory">Phone Number:</label>
           <input
             class="field"
             type="number"
@@ -78,8 +81,8 @@
       </div>
     </div>
     <div class="button_group">
-      <button type="button" (click)='clear()' class="btn btn-default">Clear</button>
-      <button type="button" (click)='save()' class="btn btn-default ml-3">Generate</button> 
+      <button type="button" (click)='clear()' class="btn btn-secondary">Clear</button>
+      <button type="button" (click)='save()' [disabled]='couponForm.invalid' class="btn btn-primary ml-3">Generate</button> 
     </div>
   </form>
 </div>

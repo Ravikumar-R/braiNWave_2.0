@@ -50,3 +50,31 @@ body {
 body .ui-button.ui-button-icon-only .ui-button-text {
     padding:  0.5em;
 }
+.mandatory:after {
+    content: ' * ';
+    color: $errorColor;
+}
+button {
+    cursor: pointer;
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+.btn-primary:hover,
+.btn-primary {
+    font-size: 1.1em;
+    color: #fff;
+    background-color: $interactiveColor;
+    border: 1px solid $interactiveColor;
+}
+.btn-secondary:hover,
+.btn-secondary {
+    font-size: 1.1em;
+    color: $interactiveColor;
+    background-color: #fff;
+    border: 1px solid $interactiveColor;
+}
+body .ui-button {
+    background-color: $interactiveColor;
+    border: 1px solid $interactiveColor;
+}
