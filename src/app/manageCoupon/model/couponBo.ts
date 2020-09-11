@@ -7,4 +7,5 @@ export class CouponBo {
   recipientName: string;
   recipientPhoneNo: number;
   recipientEmail: string;
+  status: string;
 }

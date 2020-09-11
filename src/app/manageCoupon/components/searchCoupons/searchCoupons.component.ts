@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CouponBo } from '../../model/couponBo';
+import { CentraliseddbService } from 'src/app/centraliseddb.service';
 
 @Component({
   selector: 'app-searchCoupons',
@@ -7,9 +9,50 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchCouponsComponent implements OnInit {
 
-  constructor() { }
+  colGroup: any[];
+  couponList: CouponBo[];
+  constructor(private centraliseddbService: CentraliseddbService) { }
 
   ngOnInit() {
+    this.couponList = this.centraliseddbService.getCouponList();
+    this.initialiseColGroup();
+  }
+
+  initialiseColGroup() {
+    this.colGroup = [
+      {
+      header: 'Coupon Type',
+      field: 'type'
+    },
+    {
+      header: 'Valid From',
+      field: 'validFrom'
+    },
+    {
+      header: 'Valid To',
+      field: 'validTo'
+    },
+    {
+      header: 'Amount',
+      field: 'amount'
+    },
+    {
+      header: 'Recipient Name',
+      field: 'recipientName'
+    },
+    {
+      header: 'Recipient Phone',
+      field: 'recipientPhoneNo'
+    },
+    {
+      header: 'Recipient Email',
+      field: 'recipientEmail'
+    },
+    {
+      header: 'Status',
+      field: 'status'
+    }
+  ];
   }
 
 }

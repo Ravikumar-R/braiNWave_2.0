@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CentraliseddbService } from './centraliseddb.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'brainwave2';
+  title = 'Sifi';
+  constructor(private centraliseddbService: CentraliseddbService) {
+   // this.centraliseddbService.clearAll();
+  }
 }

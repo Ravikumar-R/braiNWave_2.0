@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CouponBo } from '../../model/couponBo';
+import { CentraliseddbService } from 'src/app/centraliseddb.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manageCoupon',
@@ -10,9 +12,8 @@ import { CouponBo } from '../../model/couponBo';
 export class ManageCouponComponent implements OnInit {
   minValidDate = new Date();
   couponTypes = [{ name: 'private' }, { name: 'public' }];
-  coupon: string;
   couponForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private centraliseddbService: CentraliseddbService, private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     this.initialiseForm();
@@ -34,17 +35,19 @@ export class ManageCouponComponent implements OnInit {
     this.couponForm.reset();
   }
   save() {
-    this.formCouponBo();
+    const coupneId = this.centraliseddbService.addCoupon(this.formCouponBo());
+    this.router.navigate(['coupon', 'view', coupneId]);
   }
   formCouponBo(): CouponBo {
     const couponBo = new CouponBo();
-    couponBo.type = this.couponForm.get('type').value;
+    couponBo.type = this.couponForm.get('type').value.name;
     couponBo.amount = this.couponForm.get('amount').value;
     couponBo.validFrom = this.couponForm.get('validFrom').value;
     couponBo.validTo = this.couponForm.get('validTo').value;
     couponBo.recipientName = this.couponForm.get('recipientForm').get('name').value;
     couponBo.recipientPhoneNo = this.couponForm.get('recipientForm').get('phone').value;
     couponBo.recipientEmail = this.couponForm.get('recipientForm').get('email').value;
+    couponBo.status = 'New';
     return couponBo;
   }
 }

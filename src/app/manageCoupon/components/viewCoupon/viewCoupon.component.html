@@ -1,3 +1,53 @@
-<p>
-  viewCoupon works!
-</p>
+<div class="manageCoupon">
+  <h4 class="my-3">Sifi Details:</h4>
+  <div class="sifidetails">
+    <div class="row no-gutters mb-3">
+      <div class="col field_block">
+        <strong>Sifi Type:</strong>
+        <span>{{ coupon.type }}</span>
+      </div>
+      <div class="col field_block">
+        <strong>Sifi Amount:</strong>
+        <span>{{ coupon.amount }}</span>
+      </div>
+    </div>
+    <div class="row no-gutters mb-3">
+      <div class="col field_block">
+        <strong>Valid From:</strong>
+        <span>{{ coupon.validFrom }}</span>
+      </div>
+      <div class="col field_block">
+        <strong>Valid To:</strong>
+        <span>{{ coupon.validTo }}</span>
+      </div>
+    </div>
+    <div class="row no-gutters mb-3">
+      <div class="col field_block">
+        <strong>Recipient Name:</strong>
+        <span>{{ coupon.recipientName }}</span>
+      </div>
+      <div class="col field_block">
+        <strong>Phone Number:</strong>
+        <span>{{ coupon.recipientPhoneNo }}</span>
+      </div>
+    </div>
+    <div class="row no-gutters mb-3">
+      <div class="col field_block">
+        <strong>Email:</strong>
+        <span>{{ coupon.recipientEmail }}</span>
+      </div>
+
+      <div class="col field_block">
+        <strong>Status:</strong>
+        <span>{{ coupon.status }}</span>
+      </div>
+    </div>
+  </div>
+  <h4 class="my-3">Share via:</h4>
+  <div class="sharevia">
+    <a href="https://api.whatsapp.com/send?phone=+918903115232&text=Hai"
+      ><i class="fab fa-whatsapp"></i
+    ></a>
+   <a class="ml-4"><i class="fas fa-envelope-open-text"></i></a> 
+  </div>
+</div>

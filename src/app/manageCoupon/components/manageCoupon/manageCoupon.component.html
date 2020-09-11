@@ -1,24 +1,24 @@
 <div class="manageCoupon">
-  <h4 class="my-3">Coupon Generation</h4>
-  <h6 class="my-3">Coupon Details:</h6>
+  <h4 class="my-3">Sifi Generation</h4>
+  <h6 class="my-3">Sifi Details:</h6>
   <form [formGroup]="couponForm">
     <div class="row no-gutters mb-3">
       <div class="col-lg-4 field_block">
-        <label class="mandatory">Coupon Type:</label>
+        <label class="mandatory">Sifi Type:</label>
         <p-dropdown
           class="field"
           [options]="couponTypes"
           optionLabel="name"
-          placeholder="Coupon Type"
+          placeholder="Sifi Type"
           formControlName="type"
         ></p-dropdown>
       </div>
       <div class="col-lg-4 field_block ml-5">
-        <label class="mandatory">Coupon Amount:</label>
+        <label class="mandatory">Sifi Amount:</label>
         <input
           class="field"
           type="number"
-          placeholder="Coupon Amount"
+          placeholder="Sifi Amount"
           formControlName="amount"
         />
       </div>

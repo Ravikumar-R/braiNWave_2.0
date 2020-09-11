@@ -69,6 +69,10 @@ button {
 }
 .btn-secondary:hover,
 .btn-secondary {
+    &:disabled{
+        opacity: 0.5;
+        pointer-events: none;
+    }
     font-size: 1.1em;
     color: $interactiveColor;
     background-color: #fff;
@@ -77,4 +81,12 @@ button {
 body .ui-button {
     background-color: $interactiveColor;
     border: 1px solid $interactiveColor;
+}
+.fa-whatsapp {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+.fa-envelope-open-text {
+    font-size: 1.5em;
+    cursor: pointer;
 }

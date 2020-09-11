@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ManageCouponComponent, ViewCouponComponent, SearchCouponsComponent } from './manageCoupon/components';
+import { ManageCouponComponent, ViewCouponComponent, SearchCouponsComponent, RedeemCouponComponent } from './manageCoupon/components';
 import { HomeComponent } from './home';
 
 const routes: Routes = [
@@ -13,6 +13,7 @@ const routes: Routes = [
       { path: 'create', component: ManageCouponComponent },
       { path: 'edit/:couponId', component: ManageCouponComponent },
       { path: 'view/:couponId', component: ViewCouponComponent },
+      { path: 'redeem', component: RedeemCouponComponent },
       { path: 'search', component: SearchCouponsComponent }
     ],
   },
