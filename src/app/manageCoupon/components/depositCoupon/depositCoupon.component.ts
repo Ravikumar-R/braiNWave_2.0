@@ -5,11 +5,11 @@ import { CentraliseddbService } from 'src/app/centraliseddb.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-reedemCoupon',
-  templateUrl: './redeemCoupon.component.html',
-  styleUrls: ['./redeemCoupon.component.scss']
+  selector: 'app-depositCoupon',
+  templateUrl: './depositCoupon.component.html',
+  styleUrls: ['./depositCoupon.component.scss']
 })
-export class RedeemCouponComponent implements OnInit {
+export class DepositCouponComponent implements OnInit {
   msgs = [];
   redeemAmount: number;
   coupon: CouponBo;
@@ -23,7 +23,8 @@ export class RedeemCouponComponent implements OnInit {
     this.coupon.amount = this.coupon.amount - this.redeemAmount;
     this.coupon.status = this.coupon.amount === 0 ? 'redeemed' : 'partial' ;
     this.centraliseddbService.updateCoupon(this.coupon);
-    this.msgs.push({severity: 'success', detail: 'Sifi Redeemed Successfully '});
+    this.msgs.push({severity: 'success', detail: this.redeemAmount +
+ ' Sifi Deposited Successfully '});
     this.redeemAmount = null;
   }
 

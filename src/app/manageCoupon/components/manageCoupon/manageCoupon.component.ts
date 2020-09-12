@@ -13,14 +13,16 @@ export class ManageCouponComponent implements OnInit {
   minValidDate = new Date();
   couponTypes = [{ name: 'private' }, { name: 'public' }];
   couponForm: FormGroup;
+  msgs = [];
   constructor(private centraliseddbService: CentraliseddbService, private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     this.initialiseForm();
+    this.valueChanges();
   }
   initialiseForm() {
     this.couponForm = this.formBuilder.group({
-      type: [null, Validators.required],
+      accessType: [null, Validators.required],
       amount: [null, Validators.required],
       validFrom: [null, Validators.required],
       validTo: [null, Validators.required],
@@ -31,6 +33,18 @@ export class ManageCouponComponent implements OnInit {
       }),
     });
   }
+   valueChanges() {
+  this.couponForm.get('accessType').valueChanges.subscribe(accessType => {
+  this.couponForm.get('amount').reset();
+  });
+  this.couponForm.get('amount').valueChanges.subscribe(amount => {
+  if(this.couponForm.get('accessType').value.name === 'private' && amount > 500) {
+     this.msgs.push({severity: 'error', detail: "For Sifi Type Private Amount can't exceed 500" })
+  } else {
+     this.msgs = [];
+  }
+  });
+  }
   clear() {
     this.couponForm.reset();
   }
@@ -40,7 +54,7 @@ export class ManageCouponComponent implements OnInit {
   }
   formCouponBo(): CouponBo {
     const couponBo = new CouponBo();
-    couponBo.type = this.couponForm.get('type').value.name;
+    couponBo.accessType = this.couponForm.get('accessType').value.name;
     couponBo.amount = this.couponForm.get('amount').value;
     couponBo.validFrom = this.couponForm.get('validFrom').value;
     couponBo.validTo = this.couponForm.get('validTo').value;
@@ -48,6 +62,7 @@ export class ManageCouponComponent implements OnInit {
     couponBo.recipientPhoneNo = this.couponForm.get('recipientForm').get('phone').value;
     couponBo.recipientEmail = this.couponForm.get('recipientForm').get('email').value;
     couponBo.status = 'New';
+    couponBo.type = 'Generated';
     return couponBo;
   }
 }

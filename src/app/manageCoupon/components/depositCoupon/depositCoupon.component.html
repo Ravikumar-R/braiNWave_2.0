@@ -1,0 +1,42 @@
+<p-messages [(value)]="msgs"></p-messages>
+<div class="redeemCoupon">
+  <h4 class="my-3">Deposit Sifi</h4>
+  <div class="row no-gutters mb-3">
+    <div class="col-lg-4 field_block">
+      <label class="mandatory">Enter Coupon Code:</label>
+      <input type="text" [(ngModel)]='couponCode'>
+      <button type="button" (click)='getCouponDetails()' [disabled]='!couponCode' class="btn btn-secondary ml-3">Get Coupon</button>
+    </div>
+  </div>
+  <ng-container *ngIf='coupon'>
+    <h6 class="my-3">Sifi Details:</h6>
+    <div class="row no-gutters mb-3">
+      <div class="col-lg-4 field_block">
+        <label>Available Amount:</label>
+        <span>{{coupon?.amount}}</span>
+      </div>
+    </div>
+    <div class="row no-gutters mb-3">
+      <div class="col-lg-4 field_block">
+        <label class="mandatory">Deposit Amount:</label>
+        <input type="number" [(ngModel)]='redeemAmount'>
+      </div>
+    </div>
+   <div class="row no-gutters mb-3">
+      <div class="col-lg-4 field_block">
+        <label>Issuer Name:</label>
+        <span>{{coupon?.issuerDetails?.name}}</span>
+      </div>
+    </div>
+    <div class="row no-gutters">
+      <div class="col-lg-4 field_block">
+        <label>Issuer PhoneNumber:</label>
+        <span>{{coupon?.issuerDetails?.phoneNumber}}</span>
+      </div>
+    </div>
+
+    <div class="button_group mt-4">
+      <button type="button" (click)='redeem()' [disabled]='!redeemAmount' class="btn btn-primary ml-3">Deposit</button> 
+    </div>
+  </ng-container>
+</div>

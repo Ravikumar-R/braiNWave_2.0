@@ -1,3 +1,4 @@
+<p-messages [(value)]="msgs"></p-messages>
 <div class="manageCoupon">
   <h4 class="my-3">Sifi Generation</h4>
   <h6 class="my-3">Sifi Details:</h6>
@@ -10,7 +11,7 @@
           [options]="couponTypes"
           optionLabel="name"
           placeholder="Sifi Type"
-          formControlName="type"
+          formControlName="accessType"
         ></p-dropdown>
       </div>
       <div class="col-lg-4 field_block ml-5">

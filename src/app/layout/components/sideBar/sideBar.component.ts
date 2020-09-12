@@ -21,4 +21,7 @@ export class SideBarComponent implements OnInit {
   redeemSifi() {
     this.router.navigate(['coupon', 'redeem']);
   }
+  depositSifi() {
+    this.router.navigate(['coupon', 'deposit']);
+  }
 }

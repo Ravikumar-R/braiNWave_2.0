@@ -1,16 +1,18 @@
 <h4 class="my-3">Sifi List:</h4>
-<p-table [value]="couponList">
+<p-table [value]="couponList" class="searchSifi">
   <ng-template pTemplate="header">
       <tr>
-          <th *ngFor="let col of colGroup">
+          <th *ngFor="let col of colGroup; let i = index" class='head_column_{{i}}'>
               {{col.header}}
           </th>
       </tr>
   </ng-template>
   <ng-template pTemplate="body" let-car>
       <tr>
-          <td *ngFor="let col of colGroup">
-                  {{car[col.field]}}
+          <td *ngFor="let col of colGroup;let p = index" class='body_column_{{p}}'>
+
+                 <span *ngIf='col.field'> {{car[col.field]}} </span>
+                 <span *ngIf='!col.field' (click)='col.delete'><i class="fas fa-trash-alt"></i></span>
           </td>
       </tr>
   </ng-template>

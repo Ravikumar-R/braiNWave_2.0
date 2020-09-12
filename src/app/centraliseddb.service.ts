@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CouponBo } from './manageCoupon/model/couponBo';
+import { CouponBo, IssuerBo } from './manageCoupon/model/couponBo';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +16,10 @@ export class CentraliseddbService {
   addCoupon(coupon: CouponBo): number {
     const couponID = Math.random();
     coupon.id = couponID;
+	const issuerdetails = new IssuerBo();
+	issuerdetails.name = 'David';
+	issuerdetails.phoneNumber = 9883212742;
+	coupon.issuerDetails = issuerdetails;
     localStorage.setItem(couponID.toString(), JSON.stringify(coupon));
     return couponID;
   }

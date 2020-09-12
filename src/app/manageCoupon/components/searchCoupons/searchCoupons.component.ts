@@ -21,8 +21,8 @@ export class SearchCouponsComponent implements OnInit {
   initialiseColGroup() {
     this.colGroup = [
       {
-      header: 'Coupon Type',
-      field: 'type'
+      header: 'Sifi Access',
+      field: 'accessType'
     },
     {
       header: 'Valid From',
@@ -49,8 +49,19 @@ export class SearchCouponsComponent implements OnInit {
       field: 'recipientEmail'
     },
     {
+      header: 'Sifi Type',
+      field: 'type'
+    },
+    {
       header: 'Status',
       field: 'status'
+    },
+    {
+      header: 'Action',
+      field: '',
+      delete: (row) => {
+       this.centraliseddbService.clearOne(row.id);
+    }
     }
   ];
   }

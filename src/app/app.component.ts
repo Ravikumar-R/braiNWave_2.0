@@ -9,6 +9,6 @@ import { CentraliseddbService } from './centraliseddb.service';
 export class AppComponent {
   title = 'Sifi';
   constructor(private centraliseddbService: CentraliseddbService) {
-   // this.centraliseddbService.clearAll();
+    // this.centraliseddbService.clearAll();
   }
 }

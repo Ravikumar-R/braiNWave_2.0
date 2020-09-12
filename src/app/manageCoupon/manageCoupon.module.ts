@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ManageCouponComponent, ViewCouponComponent, SearchCouponsComponent, RedeemCouponComponent } from './components';
+import { ManageCouponComponent, ViewCouponComponent, SearchCouponsComponent, RedeemCouponComponent, DepositCouponComponent } from './components';
 import { Routes } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
@@ -13,6 +13,6 @@ const routes: Routes = [{ path: '', component: ManageCouponComponent }];
 
 @NgModule({
   imports: [MessagesModule, MessageModule, CommonModule, FormsModule, ReactiveFormsModule, CalendarModule, DropdownModule, TableModule],
-  declarations: [RedeemCouponComponent, ManageCouponComponent, ViewCouponComponent, SearchCouponsComponent],
+  declarations: [RedeemCouponComponent, ManageCouponComponent, ViewCouponComponent, SearchCouponsComponent, DepositCouponComponent],
 })
 export class ManageCouponModule {}
