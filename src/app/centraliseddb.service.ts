@@ -20,6 +20,10 @@ export class CentraliseddbService {
     return couponID;
   }
 
+  updateCoupon(coupon: CouponBo) {
+    localStorage.setItem(coupon.id.toString(), JSON.stringify(coupon));
+  }
+
   clearOne(couponID: number) {
     localStorage.removeItem(couponID.toString());
   }

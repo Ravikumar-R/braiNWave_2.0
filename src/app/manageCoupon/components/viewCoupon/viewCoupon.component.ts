@@ -10,6 +10,7 @@ import { CentraliseddbService } from 'src/app/centraliseddb.service';
 })
 export class ViewCouponComponent implements OnInit {
   coupon: CouponBo;
+  msgs = [];
   constructor(
     private routee: ActivatedRoute,
     private centraliseddbService: CentraliseddbService
@@ -17,5 +18,6 @@ export class ViewCouponComponent implements OnInit {
   ngOnInit() {
     const coupounId = this.routee.snapshot.params['couponId'];
     this.coupon = this.centraliseddbService.getCoupon(coupounId);
+    this.msgs.push({severity: 'success', detail: 'Sifi Genrated Successfully ' + coupounId});
   }
 }

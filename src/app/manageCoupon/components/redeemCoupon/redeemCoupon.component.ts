@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./redeemCoupon.component.scss']
 })
 export class RedeemCouponComponent implements OnInit {
+  msgs = [];
   redeemAmount: number;
   coupon: CouponBo;
   couponCode: string;
@@ -19,7 +20,12 @@ export class RedeemCouponComponent implements OnInit {
   }
 
   redeem() {
+    this.coupon.amount = this.coupon.amount - this.redeemAmount;
+    this.coupon.status = this.coupon.amount === 0 ? 'redeemed' : 'partial' ;
+    this.centraliseddbService.updateCoupon(this.coupon);
+    this.msgs.push({severity: 'success', detail: 'Sifi Redeemed Successfully '});
   }
+
   getCouponDetails() {
     this.coupon = this.centraliseddbService.getCoupon(this.couponCode);
   }
